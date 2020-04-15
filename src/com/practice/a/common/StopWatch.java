@@ -24,5 +24,8 @@ public class StopWatch {
         System.out.println("Current duration is: " + (timestamp[1] - timestamp[0]) + " ms");
     }
 
+    public static synchronized String getCurrentDuration() {
+        return  (timestamp[1] - timestamp[0]) + " ms";
+    }
 
 }

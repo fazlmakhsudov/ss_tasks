@@ -1,4 +1,4 @@
-package com.practice.a.variant_1;
+package com.practice.a.threads.variant_1;
 
 import com.practice.a.common.Resource;
 import com.practice.a.common.StopWatch;
@@ -36,10 +36,10 @@ public class SimpleCounterThread extends Thread {
             } catch (Exception ex) {
                 System.out.println(this.getName() + " hasn't added number " + progress + " of exception matter.");
             }
-            synchronized (this.resource) {
-                System.out.println(this.getName() + " has finished in its range and current condition of" +
-                        "common set is:\n" + resource);
-            }
+        }
+        synchronized (this.resource) {
+            System.out.println(this.getName() + " has finished in its range and current condition of" +
+                    "common set is:\n" + resource);
             StopWatch.fixEndTime();
             StopWatch.showCurrentDuration();
         }

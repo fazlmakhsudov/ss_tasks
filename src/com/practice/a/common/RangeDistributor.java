@@ -29,7 +29,9 @@ public class RangeDistributor {
                 number = this.endRange;
             }
             this.rangesForThreads[i][1] = number;
-            number++;
+            if (number < this.endRange) {
+                number++;
+            }
         }
     }
 
