@@ -25,7 +25,7 @@ public class StopWatch {
     }
 
     public static synchronized String getCurrentDuration() {
-        return  (timestamp[1] - timestamp[0]) + " ms";
+        return (timestamp[1] - timestamp[0]) + " ms";
     }
 
 }

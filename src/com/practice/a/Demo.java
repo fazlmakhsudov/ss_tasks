@@ -4,8 +4,6 @@ import com.practice.a.callable.TaskExecutorServiceResolver;
 import com.practice.a.common.Console;
 import com.practice.a.common.RangeDistributor;
 import com.practice.a.common.Resource;
-import com.practice.a.threads.variant_1.TaskResolverCommonSet;
-import com.practice.a.threads.variant_2.TaskResolverIndividualSet;
 
 import java.util.Set;
 import java.util.TreeSet;

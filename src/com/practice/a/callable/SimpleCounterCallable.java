@@ -2,7 +2,6 @@ package com.practice.a.callable;
 
 import com.practice.a.common.Resource;
 import com.practice.a.common.StopWatch;
-import org.w3c.dom.ls.LSOutput;
 
 import java.util.concurrent.Callable;
 

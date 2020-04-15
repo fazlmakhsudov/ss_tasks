@@ -3,11 +3,7 @@ package com.practice.a.callable;
 import com.practice.a.common.RangeDistributor;
 import com.practice.a.common.Resource;
 import com.practice.a.common.StopWatch;
-import com.practice.a.threads.variant_2.SimpleCounterThreadWithOwnSet;
 
-import java.util.Arrays;
-import java.util.TreeSet;
-import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Future;
@@ -18,8 +14,8 @@ import java.util.concurrent.Future;
 public class TaskExecutorServiceResolver {
     private final RangeDistributor rangeDistributor;
     private final Resource resource;
-    private ExecutorService executorService;
-    private Future<String>[] futures;
+    private final ExecutorService executorService;
+    private final Future<String>[] futures;
 
     public TaskExecutorServiceResolver(RangeDistributor rangeDistributor, Resource resource,
                                        ExecutorService es, Future<String>[] futures) {
