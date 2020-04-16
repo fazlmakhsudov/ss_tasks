@@ -53,6 +53,7 @@ public class TaskExecutorService2 {
             if (flag) {
                 this.executorService = Executors.newFixedThreadPool(2);
                 this.resource.reset();
+                i++;
             }
         } while (flag);
         StopWatch.showCurrentDuration();
