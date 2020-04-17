@@ -9,6 +9,9 @@ import java.util.concurrent.TimeUnit;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+/**
+ * Finds sequences according to pattern
+ */
 public class DataProcessCallable implements Callable<Resource> {
     private final String name;
     private final Resource resource;

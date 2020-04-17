@@ -2,6 +2,9 @@ package com.practice.b.common;
 
 import java.util.List;
 
+/**
+ * Bean for keeping sequence
+ */
 public class Sequence implements Comparable<Sequence> {
     private String sequence;
     private int occurence;

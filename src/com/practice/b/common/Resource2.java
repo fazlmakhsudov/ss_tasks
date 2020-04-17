@@ -3,9 +3,10 @@ package com.practice.b.common;
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class Resource2 extends Resource {
     private final List<String> allSequences;
-    private final Sequence sequence;
+    private Sequence sequence;
 
     public Resource2(String path, List<String> sequences) {
         super(path);
@@ -55,7 +56,7 @@ public class Resource2 extends Resource {
 
     public void reset() {
         this.allSequences.clear();
-        this.sequence.setSequence("");
+        this.sequence = new Sequence("", new ArrayList<>());
         this.flag = false;
     }
 

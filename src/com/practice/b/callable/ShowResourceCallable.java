@@ -7,6 +7,9 @@ import com.practice.b.common.Sequence;
 import java.util.concurrent.Callable;
 import java.util.concurrent.TimeUnit;
 
+/**
+ * Shows conditions of Resource object
+ */
 public class ShowResourceCallable implements Callable<Resource> {
     private final String name;
     private final Resource resource;

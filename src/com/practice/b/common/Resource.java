@@ -5,6 +5,9 @@ import java.util.ArrayList;
 import java.util.Map;
 import java.util.Set;
 
+/**
+ * Keeps all found sequences, gives methods for processing them
+ */
 public class Resource {
     protected File[] files;
     protected String activeFileName;

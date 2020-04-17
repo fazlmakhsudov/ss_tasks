@@ -7,6 +7,9 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.util.concurrent.Callable;
 
+/**
+ * Loads data from certain file
+ */
 public class FileLoaderCallable implements Callable<Resource> {
     private final String name;
     private final Resource resource;

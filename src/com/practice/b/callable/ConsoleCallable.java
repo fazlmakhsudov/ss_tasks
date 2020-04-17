@@ -7,6 +7,10 @@ import java.util.Arrays;
 import java.util.Scanner;
 import java.util.concurrent.Callable;
 
+/**
+ * Cooperates with user to
+ * determine file that should be processed
+ */
 public class ConsoleCallable implements Callable<Resource> {
     private final String name;
     private final Resource resource;
