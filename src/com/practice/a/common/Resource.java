@@ -29,11 +29,16 @@ public class Resource {
         StringBuffer stringBuffer = new StringBuffer();
         stringBuffer.append("Resource { commonSet = [ ");
         String set = this.commonSet.toString();
-        int d = set.length() / 3;
-        stringBuffer.append(set, 0, d);
-        stringBuffer.append("\n                         " + set.substring(d, d * 2));
-        stringBuffer.append("\n                          " + set.substring(2 * d) + ']');
-        stringBuffer.append("\n         }");
+        int i = 0;
+        for (Integer integer : this.commonSet) {
+            stringBuffer.append(integer + ", ");
+            if (i == 40) {
+                stringBuffer.append("\n");
+                i = 0;
+            }
+            i++;
+        }
+        stringBuffer.append(" ]\n         }");
         return stringBuffer.toString();
     }
 }

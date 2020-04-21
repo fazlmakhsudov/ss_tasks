@@ -65,9 +65,20 @@ public class MyAnnotationHandler {
         private static Object createObject(Class<?> cl) throws IllegalAccessException, InstantiationException {
             MyClassAnnotation myClassAnnotation = cl.getAnnotation(MyClassAnnotation.class);
             Object newObject = cl.newInstance();
-            ResourceBundle resourceBundle = ResourceBundle.getBundle(myClassAnnotation.fileName());
+            ResourceBundle resourceBundle = getResourceBundle(myClassAnnotation.fileName());
+            initialiseFieldsWithMyAnnotation(cl, newObject, resourceBundle, MyFieldAnnotation.class);
+            invokeMethodsWithMyAnnotation(cl, newObject, resourceBundle, MyMethodAnnotation.class);
+            return newObject;
+        }
+
+        private static ResourceBundle getResourceBundle(String path) {
+            return ResourceBundle.getBundle(path);
+        }
+
+        private static Object initialiseFieldsWithMyAnnotation(Class<?> cl, Object newObject, ResourceBundle resourceBundle,
+                                                               Class<? extends MyFieldAnnotation> myFieldMethodClass) {
             Arrays.stream(cl.getDeclaredFields()).forEach(field -> {
-                if (field.getAnnotation(MyFieldAnnotation.class) != null) {
+                if (field.getAnnotation(myFieldMethodClass) != null) {
                     field.setAccessible(true);
                     try {
                         field.set(newObject, resourceBundle.getString(field.getName()));
@@ -76,12 +87,17 @@ public class MyAnnotationHandler {
                     }
                 }
             });
+            return newObject;
+        }
+
+        private static Object invokeMethodsWithMyAnnotation(Class<?> cl, Object newObject,
+                                          ResourceBundle resourceBundle, Class<? extends MyMethodAnnotation> myAnnotationMethodClass) {
             Arrays.stream(cl.getDeclaredMethods()).filter(method -> {
-                return method.getAnnotation(MyMethodAnnotation.class) != null;
+                return method.getAnnotation(myAnnotationMethodClass) != null;
             }).forEach(method -> {
                 try {
                     method.setAccessible(true);
-                    String my_method = method.getAnnotation(MyMethodAnnotation.class).name();
+                    String my_method = method.getAnnotation(myAnnotationMethodClass).name();
                     method.invoke(newObject, resourceBundle.getString(my_method));
                 } catch (IllegalAccessException e) {
                     e.printStackTrace();
