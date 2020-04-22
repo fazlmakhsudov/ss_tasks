@@ -20,12 +20,6 @@ public class Demo {
         RangeDistributor rangeDistributor = new RangeDistributor(console);
         Thread[] threads = new Thread[console.getN()];
 
-//        TaskResolverCommonSet taskResolverCommonSet = new TaskResolverCommonSet(rangeDistributor, resource, threads);
-//        taskResolverCommonSet.runThreads();
-
-//        TaskResolverIndividualSet taskResolverIndividualSet = new TaskResolverIndividualSet(rangeDistributor, resource, threads);
-//        taskResolverIndividualSet.runThreads();
-
         ExecutorService executorService = Executors.newFixedThreadPool(console.getN());
         Future<String>[] futures = new Future[console.getN()];
         TaskExecutorServiceResolver taskExecutorServiceResolver = new TaskExecutorServiceResolver(rangeDistributor, resource,
